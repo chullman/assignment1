@@ -1,0 +1,18 @@
+{
+  "general": {
+    "riddleDetails": [
+      {
+        "question": "What starts with 'e,' ends with 'e,' and contains one letter?",
+        "answer": "An envelope"
+      },
+      {
+        "question": "What has one head, one foot, and four legs?",
+        "answer": "A bed"
+      },
+      {
+        "question": "I travel all over the world, but always stay in my corner. What am I",
+        "answer": "A stamp"
+      }
+    ]
+  }
+}

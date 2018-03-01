@@ -1,16 +1,16 @@
 {
-  "riddleDetails": [
-    {
-      "question": "What starts with 'e,' ends with 'e,' and contains one letter?",
-      "answer": "envelope"
-    },
-    {
-      "question": "What has one head, one foot, and four legs?",
-      "answer": "bed"
-    },
-    {
-      "question": "I travel all over the world, but always stay in my corner. What am I",
-      "answer": "stamp"
-    }
-  ]
+    "riddleDetails": [
+      {
+        "question": "What starts with 'e,' ends with 'e,' and contains one letter?",
+        "answer": "envelope"
+      },
+      {
+        "question": "What has one head, one foot, and four legs?",
+        "answer": "bed"
+      },
+      {
+        "question": "I travel all over the world, but always stay in my corner. What am I",
+        "answer": "stamp"
+      }
+    ]
 }

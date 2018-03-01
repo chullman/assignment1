@@ -8,7 +8,9 @@ end
 # To read and correctly parse in the contents of a json formatted string
 require 'JSON'
 # Terminal text colorization
-require 'colorize'
+require 'rainbow/refinement'
+using Rainbow
+require 'rainbow'
 
 # Reads in the contents of all-riddles.json literally as one big string, brackets and all
 json_from_file = File.read("all-riddles.json")
@@ -40,8 +42,13 @@ end
 random_index_array = generate_random_seq(json_results.riddleDetails.length)
 
 
-
-puts "There are #{random_index_array.length} questions. For each question you answer correctly you'll score a point. Get ready to play!"
+colors = [:aqua, :blueviolet, :orange, :forestgreen, :greenyellow]
+puts ""
+puts "FUN WITH RIDDLES".chars.map { |char| Rainbow(char).color(colors.sample) }.join
+puts ""
+puts "There are #{random_index_array.length} questions - for each correct answer you'll score a point!"
+puts ""
+puts "Get ready to play!"
 puts ""
 
 points = 0
@@ -50,7 +57,7 @@ points = 0
 # to serve as the getting the riddle at the particular numbers (i.e. get riddle at index 2, then at index 0, then at index 1)
 random_index_array.each do |value|
 
-  puts json_results.riddleDetails[value][:question]
+  puts json_results.riddleDetails[value][:question].yellow
 
   begin
 
@@ -60,18 +67,30 @@ random_index_array.each do |value|
     cheat_used = false
 
     # Loop until the player gets the question right
-    until gets.chomp.downcase.include?(riddle[:answer]) do
-      puts "Incorrect! Do you want to see the answer? (Enter 'y' if yes, 's' to skip or any other key to try again)".colorize(:red)
+    print "What is your answer?\n - "
+    until gets.chop.downcase.include?(riddle[:answer]) do
+      puts ""
+      puts "Incorrect! Do you want to see the answer?".red
+      puts "Enter 'y' if yes, 's' to skip or any other key to try again".cyan
+      print "What would you like to do?\n - "
+      if OS.windows?
+        Sound.play("fail-trombone-01.mp3")
+      elsif OS.mac?
+        pid = fork{ exec 'afplay', "fail-trombone-01.mp3"}
+      end
       answer = gets.chomp.downcase
       if answer == "y" || answer == "s"
           cheat_used = true
           if answer == "y"
+            puts ""
             puts "The correct answer is '#{riddle[:answer]}'"
+            puts ""
           break elsif answer == "s"
           end
           display_if_not_at_last_question(random_index_array, value, "Next question...")
       else
-      puts riddle[:question]
+      puts ""
+      puts riddle[:question].yellow
       end
 
 
@@ -84,7 +103,9 @@ random_index_array.each do |value|
     if !cheat_used
 
       # Show the answer
-      puts "Correct, the answer is: #{riddle[:answer]}\nYou've scored a point!".colorize(:green)
+      puts ""
+      puts "Correct, the answer is: #{riddle[:answer]}\nYou've scored a point!".green
+      puts ""
       # Give the player a point
       points += 1
 
@@ -99,7 +120,7 @@ random_index_array.each do |value|
     end
 
   # If something unexpected happens
-  rescue Exception => e 
+  rescue Exception => e
     puts "Something went wrong, please restart the app!"
     # .message should return a string that my provide deatils about what went wrong
     puts e.message
@@ -107,5 +128,5 @@ random_index_array.each do |value|
 
 
 end
-
+puts ""
 puts "Thank you for playing. You have scored #{points} points out of #{random_index_array.length}!".colorize(:green)

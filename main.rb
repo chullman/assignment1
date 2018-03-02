@@ -100,6 +100,7 @@ random_index_array.each do |value|
       else
       puts ""
       puts riddle[:question].yellow
+      print " - "
       end
 
 
@@ -139,4 +140,4 @@ random_index_array.each do |value|
 
 end
 puts ""
-puts "Thank you for playing. You have scored #{points} points out of #{random_index_array.length}!".colorize(:green)
+puts "Thank you for playing. You have scored #{points} points out of #{random_index_array.length}!".green

@@ -6,11 +6,15 @@ if OS.windows?
   include Win32
 end
 # To read and correctly parse in the contents of a json formatted string
-require 'JSON'
+require 'json'
 # Terminal text colorization
 require 'rainbow/refinement'
 using Rainbow
 require 'rainbow'
+Rainbow.enabled = true
+
+require 'artii'
+
 
 # Reads in the contents of all-riddles.json literally as one big string, brackets and all
 json_from_file = File.read("all-riddles.json")
@@ -41,6 +45,10 @@ end
 # If, for example, there are 3 riddles in total, the array, random_index_array, might look like [2, 0, 1] or [0, 2, 1] etc.
 random_index_array = generate_random_seq(json_results.riddleDetails.length)
 
+a = Artii::Base.new
+a.asciify('NICE!')
+a.asciify('NOPE')
+
 
 colors = [:aqua, :blueviolet, :orange, :forestgreen, :greenyellow]
 puts ""
@@ -69,8 +77,9 @@ random_index_array.each do |value|
     # Loop until the player gets the question right
     print "What is your answer?\n - "
     until gets.chop.downcase.include?(riddle[:answer]) do
+      puts a.asciify('NOPE!')
       puts ""
-      puts "Incorrect! Do you want to see the answer?".red
+      puts "Sorry, that is incorrect! Do you want to see the answer?".red
       puts "Enter 'y' if yes, 's' to skip or any other key to try again".cyan
       print "What would you like to do?\n - "
       if OS.windows?
@@ -104,7 +113,8 @@ random_index_array.each do |value|
 
       # Show the answer
       puts ""
-      puts "Correct, the answer is: #{riddle[:answer]}\nYou've scored a point!".green
+      puts a.asciify('NICE!')
+      puts "The answer is: #{riddle[:answer]}\nYou've scored a point!".green
       puts ""
       # Give the player a point
       points += 1

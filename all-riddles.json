@@ -1,16 +1,44 @@
 {
-    "riddleDetails": [
-      {
-        "question": "What starts with 'e,' ends with 'e,' and contains one letter?",
-        "answer": "envelope"
-      },
-      {
-        "question": "What has one head, one foot, and four legs?",
-        "answer": "bed"
-      },
-      {
-        "question": "I travel all over the world, but always stay in my corner. What am I",
-        "answer": "stamp"
-      }
-    ]
+  "riddleDetails": [
+    {
+      "question": "What starts with 'e,' ends with 'e,' and contains one letter?",
+      "answer": "envelope"
+    },
+    {
+      "question": "What has one head, one foot, and four legs?",
+      "answer": "bed"
+    },
+    {
+      "question": "I travel all over the world, but always stay in my corner. What am I?",
+      "answer": "stamp"
+    },
+    {
+      "question": "I am a container with no sides and no lid, yet golden treasure lays inside. What am I?",
+      "answer": "egg"
+    },
+    {
+      "question": "What has a soul but doesn’t live and a tongue but can’t taste?",
+      "answer": "shoe"
+    },
+    {
+      "question": "The maker doesn’t want it, the buyer doesn’t use it and the user doesn’t know it. What is it?",
+      "answer": "coffin"
+    },
+    {
+      "question": "What kind of vegetable is unpopular onboard ships?",
+      "answer": "leek"
+    },
+    {
+      "question": "What comes down but never goes up?",
+      "answer": "rain"
+    },
+    {
+      "question": "It weighs next to nothing but no one can hold it for long. What is it?",
+      "answer": "breath"
+    },
+    {
+      "question": "Most people need it, some ask for it, some give it, but almost nobody takes it. What is it?",
+      "answer": "advice"
+    }
+  ]
 }

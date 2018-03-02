@@ -83,9 +83,9 @@ random_index_array.each do |value|
       puts "Enter 'y' if yes, 's' to skip or any other key to try again".cyan
       print "What would you like to do?\n - "
       if OS.windows?
-        Sound.play("fail-trombone-01.mp3")
+        Sound.play("fail-trombone-01.wav")
       elsif OS.mac?
-        pid = fork{ exec 'afplay', "fail-trombone-01.mp3"}
+        pid = fork{ exec 'afplay', "fail-trombone-01.wav"}
       end
       answer = gets.chomp.downcase
       if answer == "y" || answer == "s"
@@ -139,5 +139,11 @@ random_index_array.each do |value|
 
 
 end
+colors = [:aqua, :blueviolet, :orange, :forestgreen, :greenyellow]
+points = points.to_s.green
+random_index_array = random_index_array.length.to_s.green
 puts ""
-puts "Thank you for playing. You have scored #{points} points out of #{random_index_array.length}!".green
+puts "Thanks for playing!".chars.map { |char| Rainbow(char).color(colors.sample) }.join
+puts ""
+puts "You have scored #{points} points out of #{random_index_array}!"
+puts ""

@@ -50,7 +50,7 @@ a.asciify('NICE!')
 a.asciify('NOPE')
 
 
-colors = [:aqua, :blueviolet, :orange, :forestgreen, :greenyellow]
+colors = [:red, :magenta, :cyan, :white, :yellow]
 puts ""
 puts "FUN WITH RIDDLES".chars.map { |char| Rainbow(char).color(colors.sample) }.join
 puts ""
@@ -139,7 +139,7 @@ random_index_array.each do |value|
 
 
 end
-colors = [:aqua, :blueviolet, :orange, :forestgreen, :greenyellow]
+colors = [:red, :magenta, :cyan, :white, :yellow]
 points = points.to_s.green
 random_index_array = random_index_array.length.to_s.green
 puts ""
